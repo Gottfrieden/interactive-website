@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev'
 
@@ -56,7 +57,9 @@ module.exports = {
           ['optipng', { optimizationLevel: 5 }]
         ]
       }
-    })
+    }),
+
+    new CleanWebpackPlugin()
   ],
 
   module: {
